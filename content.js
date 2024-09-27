@@ -13,8 +13,13 @@ style.textContent = `
     display: none !important;
   }
 
-  /* Hide clock */
-  .sravvpl_controlbuttons-left {
+  /* Hide clock (end time) */
+  .sravvpl_duration {
+    display: none !important;
+  }
+
+  /* Hide clock (slash) */
+  .sravvpl_separator {
     display: none !important;
   }
 
@@ -26,21 +31,21 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Hide the "black overlay" whenever it becomes active
-// Unfortunately, this hides the buttons as well (for now)
-
-function forceAutohide() {
-  const wrapper = document.querySelector('.sravvpl_wrapper');
-  if (wrapper && !wrapper.classList.contains('sravvpl_autohide')) {
-    wrapper.classList.add('sravvpl_autohide');
-  }
-}
-
-// check every .1 second to enforce autohide
-setInterval(forceAutohide, 100);
-
 window.onload = function() {
   if (window.location.href.includes('nhltv.nhl.com')) {
     alert("Progress bar remover enabled!");
   }
 };
+
+document.addEventListener('mousemove', function (event) {
+  const wrapper = document.querySelector('.sravvpl_wrapper');
+  
+  if (wrapper) {
+    // Prevent class change on mouse movement
+    if (wrapper.classList.contains('sravvpl_size-large')) {
+      wrapper.classList.remove('sravvpl_size-large');
+      wrapper.classList.add('sravvpl_autohide');
+    }
+  }
+});
+
