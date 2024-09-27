@@ -1,5 +1,5 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 3,
   "name": "NHL.TV Spoiler Blocker",
   "version": "1.2",
   "description": "Hides a bunch of things that may spoil NHL games during viewing.",
