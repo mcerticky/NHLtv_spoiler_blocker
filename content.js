@@ -37,10 +37,18 @@ window.onload = function() {
   }
 };
 
-document.addEventListener('mousemove', function (event) {
+let shouldPreventClassChange = true; // Flag to control class change on mouse movement
+
+// Add a mouse button click event listener to disable class change
+document.addEventListener('mousedown', function () {
+  shouldPreventClassChange = false; // Disable class change on mouse down
+});
+
+// Mouse move event to prevent class change if flag is set
+document.addEventListener('mousemove', function () {
   const wrapper = document.querySelector('.sravvpl_wrapper');
-  
-  if (wrapper) {
+
+  if (wrapper && shouldPreventClassChange) {
     // Prevent class change on mouse movement
     if (wrapper.classList.contains('sravvpl_size-large')) {
       wrapper.classList.remove('sravvpl_size-large');
@@ -49,3 +57,9 @@ document.addEventListener('mousemove', function (event) {
   }
 });
 
+// Optionally, you can reset the flag after a timeout if you want to allow it again
+document.addEventListener('mouseup', function () {
+  setTimeout(() => {
+    shouldPreventClassChange = true; // Re-enable class change after mouse up
+  }, 1000); // Adjust the delay as needed
+});
