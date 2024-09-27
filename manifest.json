@@ -6,12 +6,6 @@
   "permissions": [
     "activeTab", "storage", "tabs"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "action": {
-    "default_popup": "popup.html"
-  },
   "content_scripts": [
     {
       "matches": ["*://nhltv.nhl.com/*"],
