@@ -11,8 +11,6 @@ Below is the list of its functions and the rationale behind them:
   - During the playoff, when trying to watch a series-clinching game, seeing there's another game planned in 2 days kinda gives up the result eh? 
 - **Removing the "fade" effect** that comes up whenever viewer moves the mouse or uses a keyboard shortcut
   - This is just annoying, especially if there's no control bar visible.
-- (TBI) Option to keep **"Broadcast"** and **"Settings" buttons** visible
-  - Sometimes it's useful to change broadcasts or change video quality during the game.
 - (TBI) Option to **enable/disable specific functions**
   - Allowing the viewers to customize their experience.
 - (TBI) Option to select the favorite team and play only show its past games
