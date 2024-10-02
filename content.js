@@ -58,7 +58,7 @@ function simulatePlayPauseButtonClick() {
     console.log('Play button found, simulating click');
     playButton.click();
   } else {
-    console.error('Neither play nor pause button found.');
+    console.log('Neither play nor pause button found.');
   }
 }
 
