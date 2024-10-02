@@ -1,11 +1,6 @@
 // TODO: 
-// remove progress bar instead of whole controlbar
-// this will bring "broadcast" and "settings buttons back"
-// remove clock
+// add options to customize/disable features
 
-// create on/off button that works
-
-// hide the control bar
 const style = document.createElement('style');
 style.textContent = `
   /* Hide timeline/progress bar */
@@ -37,18 +32,10 @@ window.onload = function() {
   }
 };
 
-let shouldPreventClassChange = true; // Flag to control class change on mouse movement
-
-// Add a mouse button click event listener to disable class change
-document.addEventListener('mousedown', function () {
-  shouldPreventClassChange = false; // Disable class change on mouse down
-});
-
-// Mouse move event to prevent class change if flag is set
-document.addEventListener('mousemove', function () {
+document.addEventListener('mousemove', function (event) {
   const wrapper = document.querySelector('.sravvpl_wrapper');
-
-  if (wrapper && shouldPreventClassChange) {
+  
+  if (wrapper) {
     // Prevent class change on mouse movement
     if (wrapper.classList.contains('sravvpl_size-large')) {
       wrapper.classList.remove('sravvpl_size-large');
@@ -57,9 +44,25 @@ document.addEventListener('mousemove', function () {
   }
 });
 
-// Optionally, you can reset the flag after a timeout if you want to allow it again
-document.addEventListener('mouseup', function () {
-  setTimeout(() => {
-    shouldPreventClassChange = true; // Re-enable class change after mouse up
-  }, 1000); // Adjust the delay as needed
+// Function to simulate the play/pause button click
+function simulatePlayPauseButtonClick() {
+  const pauseButton = document.querySelector('.sravvpl_pause.sravvpl_controls-button');
+  const playButton = document.querySelector('.sravvpl_play.sravvpl_controls-button');
+
+  if (pauseButton && pauseButton.style.display !== 'none') {
+    // If the pause button is visible, simulate pause click
+    console.log('Pause button found, simulating click');
+    pauseButton.click();  
+  } else if (playButton && playButton.style.display !== 'none') {
+    // If the play button is visible, simulate play click
+    console.log('Play button found, simulating click');
+    playButton.click();
+  } else {
+    console.error('Neither play nor pause button found.');
+  }
+}
+
+// Add a click event listener to simulate play/pause button click when the mouse clicks anywhere on the video
+document.addEventListener('click', function () {
+  simulatePlayPauseButtonClick();
 });
