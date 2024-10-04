@@ -24,6 +24,7 @@ style.textContent = `
   }
  
 `;
+
 document.head.appendChild(style);
 
 window.onload = function() {
@@ -65,4 +66,23 @@ function simulatePlayPauseButtonClick() {
 // Add a click event listener to simulate play/pause button click when the mouse clicks anywhere on the video
 document.addEventListener('click', function () {
   simulatePlayPauseButtonClick();
+});
+
+// Function to jump to the beginning of the video
+function jumpToBeginning() {
+  const videoElement = document.querySelector('video');
+  
+  if (videoElement) {
+    videoElement.currentTime = 0;  // Set video time to 0 (beginning)
+    console.log('Jumped to the beginning of the video');
+  } else {
+    console.error('Video element not found.');
+  }
+}
+
+// Add event listener to trigger the jump when a specific key is pressed (e.g., 'b' for beginning)
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'b') {
+    jumpToBeginning();
+  }
 });
