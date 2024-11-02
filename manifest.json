@@ -8,15 +8,15 @@
     "48": "icons/logo48.png",
     "128": "icons/logo128.png"
   },
-   "action": {
+  "action": {
     "default_icon": {
       "16": "icons/logo16.png",
       "48": "icons/logo48.png",
       "128": "icons/logo128.png"
     }
   },
-  "permissions": [
-    "activeTab", "storage", "tabs"
+  "host_permissions": [
+    "*://nhltv.nhl.com/*"
   ],
   "content_scripts": [
     {
