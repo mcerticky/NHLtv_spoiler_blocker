@@ -80,9 +80,9 @@ function jumpToBeginning() {
   }
 }
 
-// Add event listener to trigger the jump when a specific key is pressed (e.g., 'b' for beginning)
+// Add event listener to trigger the jump when a specific key is pressed (e.g., 'r' for restart)
 document.addEventListener('keydown', function (event) {
-  if (event.key === 'b') {
+  if (event.key === 'r') {
     jumpToBeginning();
   }
 });
